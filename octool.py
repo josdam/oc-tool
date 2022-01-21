@@ -86,10 +86,10 @@ def read_config_file():
 
     if not os.path.exists(OC_LOGIN_CONFIG_FILE):
         os.makedirs(OC_LOGIN_DIR, exist_ok=True)
-        with open(OC_LOGIN_CONFIG_FILE, 'w'):
+        with open(OC_LOGIN_CONFIG_FILE, 'w', encoding='UTF-8'):
             pass
 
-    with open(OC_LOGIN_CONFIG_FILE, 'r') as config_file:
+    with open(OC_LOGIN_CONFIG_FILE, 'r', encoding='UTF-8') as config_file:
         config = yaml.full_load(config_file)
 
     if config:
