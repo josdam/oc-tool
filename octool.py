@@ -8,13 +8,13 @@ import yaml
 from click import style
 from columnar import columnar
 
-oc_login_dir = os.getenv("HOME") + "/.oc-tools/oc-login"
+oc_login_dir = os.getenv("HOME") + "/.oc-tools"
 oc_login_config_file = oc_login_dir + "/config.yml"
 servers = []
 
 
-@click.group(name="OC Login")
-@click.version_option(version='0.1.1')
+@click.group(name="OC Tools")
+@click.version_option(version='0.1.2')
 def commands():
     pass
 
@@ -31,7 +31,7 @@ def list_servers():
     if len(servers) > 0:
         print(columnar(servers, headers, no_borders=True, patterns=patterns))
     else:
-        print("No servers found!")
+        print("Ops! No servers found. Check your configuration file: {}".format(oc_login_config_file))
 
 
 @commands.command(name="login")
@@ -74,7 +74,7 @@ def do_command(command):
 
 def read_config_file():
     if not os.path.exists(oc_login_config_file):
-        os.makedirs(oc_login_dir)
+        os.makedirs(oc_login_dir, exist_ok=True)
         with open(oc_login_config_file, 'w'):
             pass
 

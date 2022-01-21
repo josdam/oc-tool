@@ -1,30 +1,28 @@
-# OC Tools
+# OC Tool
 
-OpenShit Client Tools
-
-## OC Login
-
-A simple wrapper over `oc login` command.
+OpenShit Client Tool
 
 ### Options
 
-- List servers
-- Login against server
+- List servers defined into `$HOME/.oc-tools/oc-login/config.yml`.
+- Login against server: A simple wrapper over `oc login` command.
 
 ## Examples Usage
 
 ### List servers
 
 ```
-oclogin.py list
+octool.py list
 ```
 
 Show the list of servers defined in `$HOME/.oc-tools/oc-login/config.yml`
 
+#### Example: [config.yml](./config.yml)
+
 ### Login against server
 
 ```
-oclogin.py login [server] --username=foo --password=bar
+octool.py login [server] --username=foo --password=bar
 ```
 
 the [server] option has to be filled with some value listed by the to list servers option. If username and/or password
