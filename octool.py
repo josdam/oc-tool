@@ -31,7 +31,8 @@ def list_servers():
     if len(SERVERS) > 0:
         print(columnar(SERVERS, headers, no_borders=True, patterns=patterns))
     else:
-        print("Ops! No servers found. Check your configuration file: {}".format(oc_login_config_file))
+        print("Ops! No servers found. Check your configuration file: {}".format(
+            oc_login_config_file))
 
 
 @commands.command(name="login")
@@ -78,13 +79,16 @@ def read_config_file():
         with open(oc_login_config_file, 'w'):
             pass
 
-    global SERVERS
     with open(oc_login_config_file, 'r') as config_file:
         config = yaml.full_load(config_file)
 
     if config:
         for server in config["servers"]:
-            SERVERS.append([server["server"], server["description"], server["api-url"], server["console-url"]])
+            SERVERS.append(
+                [server["server"],
+                 server["description"],
+                 server["api-url"],
+                 server["console-url"]])
 
 
 if __name__ == "__main__":
