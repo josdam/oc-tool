@@ -1,4 +1,6 @@
 #!/usr/bin/python
+
+"""OC Tool: OpenShit Client Tool"""
 import os
 import subprocess
 import sys
@@ -8,15 +10,15 @@ import yaml
 from click import style
 from columnar import columnar
 
-oc_login_dir = os.getenv("HOME") + "/.oc-tool"
-oc_login_config_file = oc_login_dir + "/config.yml"
+OC_LOGIN_DIR = os.getenv("HOME") + "/.oc-tool"
+OC_LOGIN_CONFIG_FILE = OC_LOGIN_DIR + "/config.yml"
 SERVERS = []
 
 
 @click.group(name="OC Tool")
-@click.version_option(version='0.1.3')
+@click.version_option(version='0.1.4')
 def commands():
-    pass
+    """Commands group"""
 
 
 @commands.command(name="list")
@@ -32,7 +34,7 @@ def list_servers():
         print(columnar(SERVERS, headers, no_borders=True, patterns=patterns))
     else:
         print("Ops! No servers found. Check your configuration file: {}".format(
-            oc_login_config_file))
+            OC_LOGIN_CONFIG_FILE))
 
 
 @commands.command(name="login")
@@ -40,7 +42,8 @@ def list_servers():
 @click.option('--username', '-u', envvar='OC_LOGIN_USER', prompt="Username",
               help='The username for server. Default value is taken from OC_LOGIN_USER env var.')
 @click.password_option('--password', '-p', envvar='OC_LOGIN_PASSWORD', confirmation_prompt=False,
-                       help='The password for server. Default value is taken from OC_LOGIN_PASSWORD env var.')
+                       help='The password for server. Default value is taken '
+                            'from OC_LOGIN_PASSWORD env var.')
 def login_server(server, username, password):
     """Login against server"""
 
@@ -58,13 +61,18 @@ def login_server(server, username, password):
         sys.exit(1)
 
     print("Trying to connect against: {0}".format(url[0][2]))
-    command = "oc login " + url[0][
-        2] + " --username=" + username + " --password=" + password + " --insecure-skip-tls-verify=true"
+    command = "oc login " \
+              + url[0][2] \
+              + " --username=" + username + " --password=" + password \
+              + " --insecure-skip-tls-verify=true"
     do_command(command)
 
 
 def do_command(command):
-    with subprocess.Popen(command.split(), universal_newlines=True, stdout=subprocess.PIPE) as sub_process:
+    """Execute the given command"""
+
+    with subprocess.Popen(command.split(), universal_newlines=True,
+                          stdout=subprocess.PIPE) as sub_process:
         while True:
             output = sub_process.stdout.readline()
             if output:
@@ -74,12 +82,14 @@ def do_command(command):
 
 
 def read_config_file():
-    if not os.path.exists(oc_login_config_file):
-        os.makedirs(oc_login_dir, exist_ok=True)
-        with open(oc_login_config_file, 'w'):
+    """Read and load config file"""
+
+    if not os.path.exists(OC_LOGIN_CONFIG_FILE):
+        os.makedirs(OC_LOGIN_DIR, exist_ok=True)
+        with open(OC_LOGIN_CONFIG_FILE, 'w'):
             pass
 
-    with open(oc_login_config_file, 'r') as config_file:
+    with open(OC_LOGIN_CONFIG_FILE, 'r') as config_file:
         config = yaml.full_load(config_file)
 
     if config:
