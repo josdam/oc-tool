@@ -8,12 +8,12 @@ import yaml
 from click import style
 from columnar import columnar
 
-oc_login_dir = os.getenv("HOME") + "/.oc-tools"
+oc_login_dir = os.getenv("HOME") + "/.oc-tool"
 oc_login_config_file = oc_login_dir + "/config.yml"
 servers = []
 
 
-@click.group(name="OC Tools")
+@click.group(name="OC Tool")
 @click.version_option(version='0.1.2')
 def commands():
     pass

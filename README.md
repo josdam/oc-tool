@@ -4,7 +4,7 @@ OpenShit Client Tool
 
 ### Options
 
-- List servers defined into `$HOME/.oc-tools/oc-login/config.yml`.
+- List servers defined into `$HOME/.oc-tool/config.yml`.
 - Login against server: A simple wrapper over `oc login` command.
 
 ## Examples Usage
@@ -15,7 +15,7 @@ OpenShit Client Tool
 octool.py list
 ```
 
-Show the list of servers defined in `$HOME/.oc-tools/oc-login/config.yml`
+Show the list of servers defined in `$HOME/.oc-tool/config.yml`
 
 #### Example: [config.yml](./config.yml)
 
@@ -25,6 +25,8 @@ Show the list of servers defined in `$HOME/.oc-tools/oc-login/config.yml`
 octool.py login [server] --username=foo --password=bar
 ```
 
-the [server] option has to be filled with some value listed by the to list servers option. If username and/or password
-are not given, default values are taken from OC_LOGIN_USER and OC_LOGIN_PASSWORD environment variables.
+The _[server]_ option will take the value of the one from the listed in the SERVER column from `octool.py list`.
+
+If _username_ and/or _password_ are not given, default values are taken from OC_LOGIN_USER and OC_LOGIN_PASSWORD
+environment variables.
 
