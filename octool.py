@@ -45,16 +45,16 @@ def login_server(server, username, password):
 
     if not username:
         print("Username is mandatory.")
-        exit(1)
+        sys.exit(1)
 
     if not password:
         print("password is mandatory.")
-        exit(1)
+        sys.exit(1)
 
     url = list(filter(lambda s: s[0] == server, SERVERS))
     if len(url) == 0:
         print("Server '{0}' not found".format(server))
-        exit(1)
+        sys.exit(1)
 
     print("Trying to connect against: {0}".format(url[0][2]))
     command = "oc login " + url[0][
