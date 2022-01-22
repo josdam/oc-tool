@@ -1,0 +1,5 @@
+servers:
+  - server: test-server
+    description: "test description"
+    api-url: https://api.server
+    console-url: https://console.server
