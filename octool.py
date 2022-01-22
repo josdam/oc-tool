@@ -33,8 +33,7 @@ def list_servers():
     if len(SERVERS) > 0:
         print(columnar(SERVERS, headers, no_borders=True, patterns=patterns))
     else:
-        print("Ops! No servers found. Check your configuration file: {}".format(
-            OC_LOGIN_CONFIG_FILE))
+        print(f"Ops! No servers found. Check your configuration file: {OC_LOGIN_CONFIG_FILE}.")
 
 
 @commands.command(name="login")
@@ -48,19 +47,19 @@ def login_server(server, username, password):
     """Login against server"""
 
     if not username:
-        print("Username is mandatory.")
+        print(f"Username is mandatory.")
         sys.exit(1)
 
     if not password:
-        print("password is mandatory.")
+        print(f"Password is mandatory.")
         sys.exit(1)
 
     url = list(filter(lambda s: s[0] == server, SERVERS))
     if len(url) == 0:
-        print("Server '{0}' not found".format(server))
+        print(f"Server '{server}' not found.")
         sys.exit(1)
 
-    print("Trying to connect against: {0}".format(url[0][2]))
+    print(f"Trying to connect against: {url[0][2]}")
     command = "oc login " \
               + url[0][2] \
               + " --username=" + username + " --password=" + password \
