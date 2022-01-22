@@ -47,11 +47,11 @@ def login_server(server, username, password):
     """Login against server"""
 
     if not username:
-        print(f"Username is mandatory.")
+        print("Username is mandatory.")
         sys.exit(1)
 
     if not password:
-        print(f"Password is mandatory.")
+        print("Password is mandatory.")
         sys.exit(1)
 
     url = list(filter(lambda s: s[0] == server, SERVERS))
