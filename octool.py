@@ -16,7 +16,7 @@ SERVERS = []
 
 
 @click.group(name="OC Tool")
-@click.version_option(version='0.1.4')
+@click.version_option(version='0.1.5')
 def commands():
     """Commands group"""
 
