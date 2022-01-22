@@ -1,15 +1,19 @@
+"""Tests for OC Tool"""
+
 import os
 import unittest
 
 import octool
 
-test_dir = os.path.dirname(__file__)
+TEST_DIR = os.path.dirname(__file__)
 
 
 class TestOCTool(unittest.TestCase):
+    """Tests for OC Tool"""
 
     def test_read_config_file(self):
-        octool.OC_LOGIN_CONFIG_FILE = test_dir + "/config.yml"
+        """Test read config file"""
+        octool.OC_LOGIN_CONFIG_FILE = TEST_DIR + "/config.yml"
         octool.read_config_file()
         self.assertEqual(octool.SERVERS, [['test-server',
                                            'test description',
