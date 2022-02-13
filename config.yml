@@ -1,49 +1,6 @@
 servers:
-  - server: dev-sscc
-    description: "Development Arteixo (Comercial, Logística, SSCC, Tiendas)"
-    api-url: https://api.axdesocp1.central.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.axdesocp1.central.inditex.grp
-  - server: dev-meccano
-    description: "Development Meccano Arteixo 2 (Meccano)"
-    api-url: https://api.axdesecocp1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.axdesecocp1.ecommerce.inditex.grp
-  - server: pre-sscc
-    description: "Preproduction Arteixo (Comercial, Logística, SSCC, Tiendas)"
-    api-url: https://api.axpreocp1.central.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.axpreocp1.central.inditex.grp
-  - server: pre-meccano-2
-    description: "Preproducción Meccano Arteixo 2"
-    api-url: https://api.axpreecocp2.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.axpreecocp2.ecommerce.inditex.grp
-  - server: pro-meccano-2
-    description: "Producción Meccano Arteixo 2"
-    api-url: https://api.axecocp1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.axecocp1.ecommerce.inditex.grp
-  - server: pro-admin-arteixo
-    description: "Production Admin Arteixo"
-    api-url: https://api.axecocpci1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.axecocpci1.ecommerce.inditex.grp
-  - server: pro-ireland-interxion
-    description: "Production Ireland Interxion 2 (Meccano)"
-    api-url: https://api.ieec1ocp1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.ieec1ocp1.ecommerce.inditex.grp
-  - server: pro-ireland-telecity
-    description: "Production Ireland Telecity 2 (Meccano)"
-    api-url: https://api.ieec2ocp1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.ieec2ocp1.ecommerce.inditex.grp
-  - server: pro-ireland-interxion-pci
-    description: "Production Ireland Interxion PCI (Meccano)"
-    api-url: https://api.ieec1ocppci1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.ieec1ocppci1.ecommerce.inditex.grp
-  - server: pro-ireland-telecity-pci
-    description: "Production Ireland Telecity PCI (Meccano)"
-    api-url: https://api.ieec2ocppci1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.ieec2ocppci1.ecommerce.inditex.grp
-  - server: pro-china-1
-    description: "Production China CPD 1 (Meccano)"
-    api-url: https://api.cnec1ocp1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.cnec1ocp1.ecommerce.inditex.grp
-  - server: pro-china-2
-    description: "Production China CPD 2 (Meccano)"
-    api-url: https://api.cnec2ocp1.ecommerce.inditex.grp:6443
-    console-url: https://console-openshift-console.apps.cnec2ocp1.ecommerce.inditex.grp
+  - server: SERVER_KEY
+    description: DESCRIPTION
+    api-url: API_URL
+    console-url: CONSOLE_URL
+  
